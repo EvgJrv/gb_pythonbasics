@@ -39,19 +39,19 @@ print(my_func(a,b,c))
 # Подсказка: попробуйте решить задачу двумя способами. Первый — возведение в степень с помощью оператора **. 
 # Второй — более сложная реализация без оператора **, предусматривающая использование цикла.
 
-x, y = 2, -2
+x, y = 2, -3
 
-def my_func(x, y):
+def my_func(x, y, x0=None):
     '''the third way'''
     if y<0:
         x,y = 1/x, -1*y
-        return my_func(x,y)
+        return my_func(x,y,x)
     elif y == 1:
         return x
     else:
-        x *= x
+        x = x*x0
         y -= 1
-        return my_func(x,y)
+        return my_func(x,y,x0)
 
 print(my_func(x,y))
 

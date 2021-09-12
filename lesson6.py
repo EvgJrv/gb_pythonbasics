@@ -7,22 +7,22 @@ import time
 from datetime import datetime as dt
 
 class TrafficLight(object):
-	 def __init__(self):
-		 self._color = {'r':7,'y':2,'g':2}
-		 print(sum(self._color.values()))
+	def __init__(self):
+		self._color = {'r':7,'y':2,'g':2}
+		print(sum(self._color.values()))
 	
-	 def turn_on(self): #сеттер )
-		 self.__beg_time = dt.now()
-		 # грязный хак в том, что светофор можно в любой момент ребутнуть, дёрнув сеттер
-		 # мне кажется, это очень мило соответствует объективной реальности )) "выключи и включи его снова"
+	def turn_on(self): #сеттер )
+		self.__beg_time = dt.now()
+		# грязный хак в том, что светофор можно в любой момент ребутнуть, дёрнув сеттер
+		# мне кажется, это очень мило соответствует объективной реальности )) "выключи и включи его снова"
 
-	 def get_color(self): #геттер )
-		 time_res = int((dt.now()-self.__beg_time).total_seconds()) % sum(self._color.values())
-		 # граничных условий не было, сделал приведение в инт
-		 # на 6.9999999 секунд ещё горит красный, на 7.00 уже жёлтый
-		 if time_res < self._color['r']: return 'red'
-		 elif time_res < self._color['r'] + self._color['y']: return 'yellow'
-		 else: return 'green'
+	def get_color(self): #геттер )
+		time_res = int((dt.now()-self.__beg_time).total_seconds()) % sum(self._color.values())
+		# граничных условий не было, сделал приведение в инт
+		# на 6.9999999 секунд ещё горит красный, на 7.00 уже жёлтый
+		if time_res < self._color['r']: return 'red'
+		elif time_res < self._color['r'] + self._color['y']: return 'yellow'
+		else: return 'green'
 
 tl = TrafficLight()
 tl.turn_on() 
@@ -36,12 +36,12 @@ print(tl.get_color())
 # # Например: 20м * 5000м * 25кг * 5см = 12500 т
 
 class Road(object):
-	 def __init__(self, length, width):
-		 self._length = length
-		 self._width = width
+	def __init__(self, length, width):
+		self._length = length
+		self._width = width
 
-	 def coumt_mass(self,mass,height):
-		 return f'{self._length*self._width*mass*height/1000} т'
+	def coumt_mass(self,mass,height):
+		return f'{self._length*self._width*mass*height/1000} т'
 
 road = Road(20, 5000)
 print(road.coumt_mass(25,5))

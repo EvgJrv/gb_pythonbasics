@@ -84,7 +84,7 @@ print(task6)
 # Далее реализовать список. Он должен содержать словарь с фирмами и их прибылями, а также словарь со средней прибылью. Если фирма получила убытки, также добавить ее в словарь (со значением убытков).
 
 from statistics import mean
-from json import dumps
+from json import dump
 
 firms = {}
 with open('file7.txt', 'r') as file:
@@ -92,5 +92,5 @@ with open('file7.txt', 'r') as file:
         line = line.strip().split(' ')
         firms[line[0]] = int(line[2]) - int(line[3])
 output = [firms, {"average_profit": mean([p for p in [*firms.values()] if p > 0])}]
-with open('file7_new.txt', 'w') as file:
-    print(dumps(output), file=file)
+with open('file7_new.txt', 'w') as file: 
+    dump(output, fp=file)

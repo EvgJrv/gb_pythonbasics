@@ -61,7 +61,7 @@ class Clothes(object):
 
 class Coat(Clothes):
 	def __init__(self, name, v: int):
-		if type(v) !=int or v <= 0: raise GoFuckYourselveError('в игры со мной играть удумал?')
+		if type(v) not in (int, float) or v <= 0: raise GoFuckYourselveError('в игры со мной играть удумал?')
 		self.v = v
 		super().__init__(name)
 
@@ -72,7 +72,7 @@ class Coat(Clothes):
 
 class Suit(Clothes):
 	def __init__(self, name, h: int):
-		if type(h) !=int or h <= 0: raise GoFuckYourselveError('в игры со мной играть удумал?')
+		if type(h) not in (int, float) or h <= 0: raise GoFuckYourselveError('в игры со мной играть удумал?')
 		self.h = h
 		super().__init__(name)
 
